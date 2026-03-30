@@ -19,6 +19,16 @@ jobs:
           pip install --upgrade pip
           pip install buildozer cython==0.29.33 setuptools
 
+       - name: Create buildozer.spec
+        run: |
+          buildozer init
+          # Тут мы заменяем стандартные строки на нужные нам через sed
+          sed -i 's/requirements = python3,kivy/requirements = python3,pygame==2.5.2,setuptools/' buildozer.spec
+          sed -i 's/orientation = portrait/orientation = landscape/' buildozer.spec
+          # Если твой main.py в подпапке src, раскомментируй строку ниже:
+          # sed -i 's|source.dir = .|source.dir = ./src|' buildozer.spec
+
+
       - name: Build APK
         run: |
           # Если main.py в подпапке, убедись, что в buildozer.spec указан source.dir
