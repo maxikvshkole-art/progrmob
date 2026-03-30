@@ -46,3 +46,4 @@ jobs:
           name: flappy-bar-apk
           path: bin/*.apk
           compression-level: 0 # Для APK лучше не сжимать повторно
+ 
