@@ -22,7 +22,7 @@ jobs:
         run: |
           # Nuitka превращает .py в один исполняемый файл 'program'
           # Мы убираем все расширения, чтобы был просто Unix-стиль
-          python -m nuitka --onefile --standalone --plugin-enable=pygame --output-filename=program main.py
+          python -m nuitka --onefile --standalone --follow-imports --output-filename=program main.py
 
       - name: Upload Binary
         uses: actions/upload-artifact@v4
